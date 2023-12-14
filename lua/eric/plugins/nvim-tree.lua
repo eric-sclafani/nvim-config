@@ -43,7 +43,7 @@ return {
         },
       },
       filters = {
-        custom = { ".DS_Store" },
+        custom = { ".DS_Store", "__pycache__", ".egg-info", ".git", ".ipynb_checkpoints", ".virtual_documents" },
       },
       git = {
         ignore = false,
