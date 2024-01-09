@@ -17,7 +17,8 @@ return {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
         "black", -- python formatter
-        "pylint", -- python linter
+        "flake8",
+        "pylint",
         "eslint_d", -- js linter
       },
     })
@@ -28,13 +29,13 @@ return {
 
     -- to setup format on save
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
     -- configure null_ls
     null_ls.setup({
       -- add package.json as identifier for root (for typescript monorepos)
       root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
       -- setup formatters & linters
       sources = {
+
         --  to disable file types use
         --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
         formatting.prettier.with({
@@ -43,7 +44,7 @@ return {
         formatting.stylua, -- lua formatter
         formatting.isort,
         formatting.black,
-        diagnostics.pylint,
+        diagnostics.flake8,
         diagnostics.eslint_d.with({ -- js/ts linter
           condition = function(utils)
             return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
