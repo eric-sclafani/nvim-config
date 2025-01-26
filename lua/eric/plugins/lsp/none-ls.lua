@@ -17,9 +17,7 @@ return {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
         "black", -- python formatter
-        "flake8",
-        "pylint",
-        "eslint_d", -- js linter
+        "ruff",
       },
     })
 

@@ -98,6 +98,7 @@ return {
           -- make the language server recognize "vim" global
           diagnostics = {
             globals = { "vim", "love" },
+            disable = { "lowercase-global", "redundant-parameter" },
           },
           workspace = {
             checkThirdParty = false,
